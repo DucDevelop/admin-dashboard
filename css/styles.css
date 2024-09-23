@@ -1,19 +1,28 @@
 :root {
-
-
-
+    font-size: 16px;
+    --background-color : #a855f7;
+    --background-color : #2a824a;
+    --button-color : #d8b4fe;
+    --card-color :#e9d5ff;
+    --card-color :#a855f7;
+    --font-color-sidebar: #f3e8ff;
+    --main-background-color: #faf5ff;
+    --card-background-color: white;
 }
 
 * {
     box-sizing: border-box;
-    
+    line-height: 1.5rem;
+    padding: 0px;
+    margin: 0px;
+    font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
 }
 
 
 body {
     display: grid;
     grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr 5fr;
+    grid-template-rows: 200px 1fr;
     grid-template-areas: 
     "sidebar header"
     "sidebar main";
@@ -28,6 +37,8 @@ body {
     grid-area: sidebar;
     display: grid;
     grid-template-rows: 1fr 5fr;
+    background-color: var(--background-color);
+    color: var(--font-color-sidebar);
 }
 
 
@@ -38,10 +49,13 @@ body > div {
 }
 
 .project-card {
-    width:  clamp(200px ,calc(((100% - 16px) / 2)), 50%);
+    /* width:  clamp(200px ,calc(((100% - 16px) / 2)), 50%); */
     /* flex-basis: max(400px, calc((100% / 2))); */
     /* height: 200px; */
-    border: 1px solid red;
+    border-left: 10px solid var(--card-color);
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px black;
+    background-color: var(--card-background-color);
 }
 
 /* LAYOUT */
@@ -65,16 +79,51 @@ body > div {
 
 .header {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 75px 1fr;
+    grid-template-columns: 4fr 1fr;
     border: 1px solid red;
 }
 
-.header .searchbar {
-    grid-row: 1;
+.searchbar {
     grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+    display: flex;
 }
-.header .user {
+
+.user {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    /* justify-content: center; */
+}
+.greeting {
+    grid-column: 1;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 16px;
+}
+
+.actions {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.user .profile {
+    flex-grow: 2;
+}
+
+.searchbar input {
+    flex-grow: 1;
+    height: 2rem;
+}
+
+
+/* .header .user {
     grid-row: 1;
     grid-column: 2;
 }
@@ -85,13 +134,14 @@ body > div {
 .header .greeting {
     grid-row: 2;
     grid-column: 1;
-}
+} */
 
 .main-content {
     grid-area: main;
     display: grid;
     grid-template-columns: 3fr 1fr;
     grid-template-rows: 1fr 1fr;
+    background-color: var(--main-background-color);
 }
 
 .project-container {
@@ -102,8 +152,12 @@ body > div {
 }
 
 .project-card-container {
-    display: flex;
-    flex-wrap: wrap;
+    /* display: flex;
+    flex-wrap: wrap; */
+    display: grid;
+    justify-content: stretch;
+    align-items: stretch;
+    grid-template-columns: 1fr 1fr;
     gap: 16px;
 }
 
@@ -113,6 +167,7 @@ body > div {
     display: flex;
     flex-direction: column;
     border: 1px solid red;
+    justify-content: space-between;
 }
 
 .trending {
@@ -121,4 +176,66 @@ body > div {
     display: flex;
     flex-direction: column;
     border: 1px solid red;
+    justify-content: space-between;
+
+}
+
+
+li {
+    list-style-type: none;
+}
+
+img.icon {
+    height: 35px;
+}
+
+
+div.profile-image {
+    flex-grow: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 75px;
+    /* width: clamp(100px, 10%, 200px); */
+}
+
+
+img.profile-picture {
+    border-radius: 50%;
+    width: clamp(75px, 10%, 200px);
+    object-fit: contain;
+    display: block;
+}
+
+
+
+div.greeting img.profile-picture {
+    width: clamp(100px, 10%, 200px);
+}
+
+div.greeting div.profile-image {
+    max-width: 125px;
+}
+
+button {
+    background-color: var(--button-color);
+    border-radius: 8px;
+    width: 100px;
+    height: 1.8rem;
+    color: var(--font-color-sidebar);
+    border: none;
+    font-weight: bold;
+    box-shadow: 1px 1px 1px black;
+    font-size: 1.2rem;
+}
+
+div.trending-user {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+}
+
+.project-buttons ul {
+    display: flex;
+    justify-content: end;
+    gap: 16px;
 }

@@ -13,19 +13,19 @@
         <nav>     
                 <div class="nav-links">
                     <ul>
-                        <li>Home</li>
-                        <li>Profile</li>
-                        <li>Messages</li>
-                        <li>History</li>
-                        <li>Tasks</li>
-                        <li>Communities</li>
+                        <li><img class="icon" src="assets/icons/home.svg">Home</li>
+                        <li><img class="icon" src="assets/icons/account.svg">Profile</li>
+                        <li><img class="icon" src="assets/icons/chat.svg">Messages</li>
+                        <li><img class="icon" src="assets/icons/history.svg">History</li>
+                        <li><img class="icon" src="assets/icons/note-multiple.svg">Tasks</li>
+                        <li><img class="icon" src="assets/icons/account-group.svg">Communities</li>
                     </ul>
                 </div>
                 <div class="misc-links">
                     <ul>
-                        <li>Settings</li>
-                        <li>Support</li>
-                        <li>Privacy</li>
+                        <li><img class="icon" src="assets/icons/setting.svg">Settings</li>
+                        <li><img class="icon" src="assets/icons/help-rhombus.svg">Support</li>
+                        <li><img class="icon" src="assets/icons/shield-lock.svg">Privacy</li>
                     </ul>    
                 </div>
             </ul>
@@ -33,29 +33,42 @@
     </div>
 
     <div class="header">
-        <div class="searchbar">
-            <label for="search"><span><img src=""></span></label>
-            <input type="text" id="search" name="user-search">
-        </div>
+            <div class="searchbar">
+                <label for="search"><span><img class="icon" src="assets/icons/magnify.svg"></span></label>
+                <input type="text" id="search" name="user-search">
+            </div>
+            
+            <div class="user">
+                <!-- <div class="notifications"> -->
+                    <img class="icon" src="assets/icons/notification.svg">
+                <!-- </div> -->
+                
+                <div class="profile-image">
+                    <img class="profile-picture" src="assets/profile-pictures/uifaces-cartoon-image.jpg">
+                </div>
+                <div class="profile">
+                    <span>user-name</span>
+                </div>
+            </div>
+            
+            <div class="greeting">
+                <div class="profile-image">
+                    <img class="profile-picture" src="assets/profile-pictures/uifaces-cartoon-image.jpg">
+                </div>
+                <div class="greeting-text">
+                    <p>Hi there<p>
+                    <h2>Username (@user-name)</h2>
+                </div>
 
-        <div class="user">
-            <div class="notifications"><img src=""></div>
-            <div class="profile"><p>User1</p></div>
-        </div>
-
-
-        <div class="greeting">
-            <p>Hi there<p>
-            <h2>Username (@user-name)</h2>
-        </div>
-
-        <div class="actions">
-            <button>New</button>
-            <button>Upload</button>
-            <button>Share</button>
-        </div>
+            </div>
+            
+            <div class="actions">
+                <button>New</button>
+                <button>Upload</button>
+                <button>Share</button>
+            </div>
     </div>
-
+            
     <div class="main-content">
         <div class="project-container">
             <h3>Your Projects</h3>
@@ -88,7 +101,13 @@
                 <div class="project-card">
                     <h4>Money Maker</h4>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime unde repellat architecto quas dolorum consequuntur laudantium dolorem, consectetur eos incidunt est harum animi et aspernatur dignissimos doloremque quisquam provident rem.</p>
-                    <div class="project-buttons"></div>
+                    <div class="project-buttons">
+                        <ul>
+                            <li><img class="icon" src="assets/icons/home.svg"></li>
+                            <li><img class="icon" src="assets/icons/account.svg"></li>
+                            <li><img class="icon" src="assets/icons/chat.svg"></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -110,24 +129,40 @@
         <div class="trending">
             <h3>Trending</h3>
             <div class="trending-user">
-                <img src="">
-                <h5>User1</h5>
-                <p>User2</p>
+                <div class="profile-image">
+                    <img class="profile-picture" src="assets/profile-pictures/uifaces-cartoon-image (1).jpg">
+                </div>
+                <div class="profile-info">
+                    <h5>User1</h5>
+                    <p>User2</p>
+                </div>
             </div>
             <div class="trending-user">
-                <img src="">
-                <h5>User1</h5>
-                <p>User2</p>
+                <div class="profile-image">
+                    <img class="profile-picture" src="assets/profile-pictures/uifaces-cartoon-image (2).jpg">
+                </div>
+                <div class="profile-info">
+                    <h5>User1</h5>
+                    <p>User2</p>
+                </div>
             </div>
             <div class="trending-user">
-                <img src="">
-                <h5>User1</h5>
-                <p>User2</p>
+                <div class="profile-image">
+                    <img class="profile-picture" src="assets/profile-pictures/uifaces-popular-image.jpg">
+                </div>
+                <div class="profile-info">
+                    <h5>User1</h5>
+                    <p>User2</p>
+                </div>
             </div>
             <div class="trending-user">
-                <img src="">
-                <h5>User1</h5>
-                <p>User2</p>
+                <div class="profile-image">
+                    <img class="profile-picture" src="assets/profile-pictures/uifaces-cartoon-image (3).jpg">
+                </div>
+                <div class="profile-info">
+                    <h5>User1</h5>
+                    <p>User2</p>
+                </div>
             </div>
         </div>
 
