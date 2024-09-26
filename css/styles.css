@@ -1,13 +1,11 @@
 :root {
     font-size: 16px;
-    --background-color : #a855f7;
-    --background-color : #2a824a;
-    --button-color : #d8b4fe;
-    --card-color :#e9d5ff;
-    --card-color :#a855f7;
-    --font-color-sidebar: #f3e8ff;
-    --main-background-color: #faf5ff;
-    --card-background-color: white;
+    --background-color : #064e3b;
+    --button-color : #0f766e;
+    --card-color :#115e59;
+    --font-color-sidebar: white;
+    --main-background-color: #e4e4e7;
+    --card-background-color: #fafafa;
 }
 
 * {
@@ -21,41 +19,40 @@
 
 body {
     display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: 200px 1fr;
+    grid-template-columns: minmax(300px, .8fr) 4fr;
+    grid-template-rows: 250px calc(100vh - 300px) 50px;
     grid-template-areas: 
     "sidebar header"
-    "sidebar main";
+    "sidebar main"
+    "sidebar ...";
     height: 100vh;
     width: 100vw;
+    background-color: var(--main-background-color);
 }
 
-.header {
-    grid-area: header;
-}
+
 .sidebar {
     grid-area: sidebar;
     display: grid;
     grid-template-rows: 1fr 5fr;
     background-color: var(--background-color);
     color: var(--font-color-sidebar);
+    padding: 16px;
+}
+
+.sidebar > * {
+    padding: 16px;
 }
 
 
-
-
-body > div {
-    border: 1px solid black;
-}
 
 .project-card {
-    /* width:  clamp(200px ,calc(((100% - 16px) / 2)), 50%); */
-    /* flex-basis: max(400px, calc((100% / 2))); */
-    /* height: 200px; */
+    padding: 32px;
     border-left: 10px solid var(--card-color);
     border-radius: 10px;
     box-shadow: 2px 2px 4px black;
     background-color: var(--card-background-color);
+    min-width: 400px;
 }
 
 /* LAYOUT */
@@ -78,31 +75,42 @@ body > div {
 }
 
 .header {
+    grid-area: header;
     display: grid;
     grid-template-rows: 75px 1fr;
-    grid-template-columns: 4fr 1fr;
-    border: 1px solid red;
+    grid-template-columns: 2fr minmax(350px, 1fr);
+    padding: 32px;
+    background-color: var(--card-background-color);
 }
 
 .searchbar {
     grid-column: 1;
     grid-row: 1;
-    align-self: center;
+    align-self: start;
     display: flex;
+    gap: 16px;
 }
 
 .user {
     grid-column: 2;
     grid-row: 1;
-    display: flex;
-    /* justify-content: center; */
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 150px 100px 1fr;
+    align-items: center;
 }
+
+.user img {
+    justify-self: end;
+}
+
 .greeting {
     grid-column: 1;
     grid-row: 2;
     display: grid;
     grid-template-columns: 100px 1fr;
     gap: 16px;
+    align-items: center;
 }
 
 .actions {
@@ -110,7 +118,9 @@ body > div {
     grid-row: 2;
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: end;
+    padding: 16px;
+
 }
 
 .user .profile {
@@ -120,28 +130,21 @@ body > div {
 .searchbar input {
     flex-grow: 1;
     height: 2rem;
+    background-color: var(--main-background-color);
+    border: none;
+    border-radius: 16px;
+    padding: 16px;
 }
 
-
-/* .header .user {
-    grid-row: 1;
-    grid-column: 2;
-}
-.header .actions {
-    grid-row: 2;
-    grid-column: 2;
-}
-.header .greeting {
-    grid-row: 2;
-    grid-column: 1;
-} */
 
 .main-content {
     grid-area: main;
     display: grid;
+    gap: 16px;
     grid-template-columns: 3fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 100%;
     background-color: var(--main-background-color);
+    padding: 16px;
 }
 
 .project-container {
@@ -149,6 +152,7 @@ body > div {
     grid-column: 1;
     display: grid;
     grid-template-rows: 50px 1fr;
+    padding: 16px;
 }
 
 .project-card-container {
@@ -158,25 +162,27 @@ body > div {
     justify-content: stretch;
     align-items: stretch;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    grid-auto-rows: 300px;
+    gap: 32px;
 }
 
 .announcements {
     grid-column: 2;
     grid-row: 1;
+    padding: 16px;
     display: flex;
+    gap: 16px;
     flex-direction: column;
-    border: 1px solid red;
-    justify-content: space-between;
 }
+
 
 .trending {
     grid-column: 2;
     grid-row: 2;
     display: flex;
     flex-direction: column;
-    border: 1px solid red;
-    justify-content: space-between;
+    gap: 16px;
+    padding: 16px;
 
 }
 
@@ -187,6 +193,7 @@ li {
 
 img.icon {
     height: 35px;
+    cursor: pointer;
 }
 
 
@@ -205,6 +212,12 @@ img.profile-picture {
     width: clamp(75px, 10%, 200px);
     object-fit: contain;
     display: block;
+    cursor: pointer;
+}
+
+
+img:hover {
+    filter: brightness(70%);
 }
 
 
@@ -227,15 +240,92 @@ button {
     font-weight: bold;
     box-shadow: 1px 1px 1px black;
     font-size: 1.2rem;
+    cursor: pointer;
 }
 
 div.trending-user {
     display: grid;
-    grid-template-columns: 100px 1fr;
+    grid-template-columns: minmax(10%, 75px) 1fr;
+    gap: 16px;
+    padding: 8px;
+    align-items: center;
 }
 
 .project-buttons ul {
     display: flex;
     justify-content: end;
-    gap: 16px;
+    
+    gap: 32px;
+    margin-top: 16px;
+}
+
+div.announcement-card {
+    /* border-bottom: 1px solid gray; */
+    background-color: var(--card-background-color);
+    padding: 16px;
+    font-size: .8rem;
+    flex-grow: 0;
+    min-width: 300px;
+}
+
+div.announcement-text {
+    border-bottom: 1px solid gray;
+    padding-bottom: 32px;
+}
+
+div.announcement-card:last-child > div.announcement-text{
+    border-bottom: none;
+}
+
+
+
+div.announcement-card:first-child
+{
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+div.announcement-card:last-child
+{
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.user-container {
+    background-color: var(--card-background-color);
+    flex-grow: 1;
+    border-radius: 8px;
+    gap: 24px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar img.icon {
+    filter: invert(1);
+    margin-right: 16px;
+    position: relative;
+    top: 5px;
+}
+
+.sidebar h1 img.icon {
+    filter: invert(1);
+    height: 50px;
+    fill: white;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+h4 {
+    font-size: 1.2rem;
+}
+h5 {
+    font-size: 1.0rem;
+}
+
+.side-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
 }
