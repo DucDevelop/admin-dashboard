@@ -44,6 +44,12 @@ body {
     padding: 16px;
 }
 
+nav li,
+.header div.user {
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
 
 
 .project-card {
